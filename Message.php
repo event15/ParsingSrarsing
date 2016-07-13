@@ -24,10 +24,6 @@ class Message
 
     public function addTemplate($template)
     {
-        if(! $template) {
-            throw new \RuntimeException('Proszę podać link do wyeksportowanego pliku.');
-        }
-        
         $this->message['commands']['template'] = [
             $template
         ];
@@ -67,6 +63,10 @@ class Message
 
     public function addTemplateFile($fileUrl)
     {
+        if (! $fileUrl) {
+            throw new \RuntimeException('Proszę podać link do wyeksportowanego pliku.');
+        }
+        
         $this->message['templateFile'] = $fileUrl;
     }
 
